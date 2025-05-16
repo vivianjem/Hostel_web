@@ -1,0 +1,77 @@
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    margin: 0;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  header {
+    text-align: center;
+    background: #e6f0ec;
+    padding: 24px 16px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  header p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #666;
+  }
+  .date-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 16px;
+  }
+  .search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  input[type="date"] {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  button {
+    padding: 10px 16px;
+    background-color: #5a9c84;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  .section {
+    margin: 24px 16px;
+  }
+  .section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    font-size: 0.95rem;
+  }
+  .more-link {
+    text-align: right;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    color: #007B7F;
+  }
+  .search-btn {
+    width: 180px; 
+    background-color: #3b82f6;
+  }
+  
