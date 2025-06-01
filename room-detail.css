@@ -298,3 +298,60 @@ body {
     height: 74px;
   }
 }
+.room-keypoints {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 20px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.05rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+.room-keypoints .bi { margin-right: 3px; }
+.room-keypoints .dot-sep {
+  font-size: 1.1em;
+  color: #a3b6cc;
+  margin: 0 7px;
+  user-select: none;
+}
+.room-features-list {
+  margin-bottom: 20px;
+  font-size: 1.04rem;
+  color: #355;
+}
+.room-features-list div {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.room-features-list i {
+  color: #3b82f6;
+  font-size: 1.18em;
+  margin-right: 7px;
+}
+.sticky-aside {
+  position: sticky;
+  top: 32px;
+  align-self: flex-start;
+}
+.room-includes {
+  margin: 7px 0 18px 0;
+}
+.include-tag {
+  display: inline-block;
+  font-size: 0.95em;
+  background: #e6f7fa;
+  color: #226488;
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin-right: 7px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+@media (max-width: 900px) {
+  .sticky-aside { position: static; }
+  .room-keypoints { flex-wrap: wrap; }
+}
