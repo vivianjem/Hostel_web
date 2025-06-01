@@ -20,24 +20,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <body>
   <div class="logo-section">
-    <img src="Photo/logo.jpg " alt="包棟王 Logo" class="logo-img" oncontextmenu="return false;" draggable="false">
+    <img src="Photo/logo.jpg" alt="包棟王 Logo" class="logo-img" oncontextmenu="return false;" draggable="false">
     <div class="slogan">
       一鍵探索專屬你的療癒旅宿，感受自然與溫暖交織的完美假期
     </div>
   </div>
-  <header>
-    <div class="date-bar-vertical">
-      <input type="date" class="date-input" id="date-start" value="2025-05-16">
-      <input type="date" class="date-input" id="date-end" value="2025-05-19">
-    </div>
+  <!-- 搜尋區塊，桌機橫排，手機直排 -->
+  <section class="search-section">
+    <input type="date" class="date-input" id="date-start" value="2025-05-16">
+    <span class="search-arrow">→</span>
+    <input type="date" class="date-input" id="date-end" value="2025-05-19">
     <button class="search-btn">搜尋</button>
-    <h1>包棟王</h1>
-  </header>
-
+  </section>
 
   <main>
+    <h2 class="main-title">精選民宿</h2>
     <div class="grid">
-      <div class="card">
+      <div class="card" tabindex="0">
         <img class="photo" src="Photo/panoramic3.jpg" alt="陽光海岸民宿" oncontextmenu="return false;" draggable="false">
         <div class="info">
           <h2>山海景觀民宿</h2>
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="tags">設備｜KTV／麻雀間／水池</div>
         </div>
       </div>
-      <div class="card">
+      <div class="card" tabindex="0">
         <img class="photo" src="Photo/panoramic2.jpg" alt="森林小屋" oncontextmenu="return false;" draggable="false">
         <div class="info">
           <h2>森林小屋</h2>
