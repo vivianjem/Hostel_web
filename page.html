@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="card">
         <img class="photo" src="Photo/panoramic3.jpg" alt="陽光海岸民宿" oncontextmenu="return false;" draggable="false">
         <div class="info">
-          <h2>陽光海岸民宿</h2>
+          <h2>山海景觀民宿</h2>
           <div class="price">NT$18,500 起｜評分 5.00</div>
           <div class="stars" data-score="5"></div>
           <div class="tags">設備｜KTV／麻雀間／水池</div>
@@ -58,28 +58,56 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </main>
   <script>
-    // 動態渲染 SVG 星星
-    function renderStars() {
-      const starsElements = document.querySelectorAll('.stars');
-      starsElements.forEach(el => {
-        let score = parseFloat(el.getAttribute('data-score')) || 0;
-        let starsHTML = '';
-        for (let i = 1; i <= 5; i++) {
-          if (score >= i) {
-            // 實心星
-            starsHTML += `<svg width="22" height="22" viewBox="0 0 24 24" fill="#fbbf24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 17.77L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-          } else if (score >= i - 0.5) {
-            // 半星
-            starsHTML += `<svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><defs><linearGradient id="half${i}" x1="0" x2="1" y1="0" y2="0"><stop offset="50%" stop-color="#fbbf24"/><stop offset="50%" stop-color="#e5e7eb"/></linearGradient></defs><path d="M12 17.77L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#half${i})" stroke="#fbbf24" stroke-width="1"/></svg>`;
-          } else {
-            // 空心星
-            starsHTML += `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 17.77L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
-          }
+  // 動態渲染 SVG 星星
+  function renderStars() {
+    const starsElements = document.querySelectorAll('.stars');
+    starsElements.forEach(el => {
+      let score = parseFloat(el.getAttribute('data-score')) || 0;
+      let starsHTML = '';
+      for (let i = 1; i <= 5; i++) {
+        if (score >= i) {
+          // 實心星
+          starsHTML += `<svg width="22" height="22" viewBox="0 0 24 24" fill="#fbbf24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 17.77L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+        } else if (score >= i - 0.5) {
+          // 半星
+          starsHTML += `<svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><defs><linearGradient id="half${i}" x1="0" x2="1" y1="0" y2="0"><stop offset="50%" stop-color="#fbbf24"/><stop offset="50%" stop-color="#e5e7eb"/></linearGradient></defs><path d="M12 17.77L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#half${i})" stroke="#fbbf24" stroke-width="1"/></svg>`;
+        } else {
+          // 空心星
+          starsHTML += `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 17.77L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
         }
-        el.innerHTML = starsHTML;
+      }
+      el.innerHTML = starsHTML;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // 禁用右鍵另存
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
       });
-    }
-    document.addEventListener('DOMContentLoaded', renderStars);
+      img.setAttribute('draggable', 'false');
+    });
+
+    renderStars();
+
+    // 跳轉到民宿詳細頁並帶入日期
+    const dateStartInput = document.getElementById('date-start');
+    const dateEndInput = document.getElementById('date-end');
+    document.querySelectorAll('.card').forEach(function(card) {
+      const h2 = card.querySelector('h2');
+      if(h2 && h2.textContent.includes('山海景觀民宿')) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+          const start = dateStartInput.value;
+          const end = dateEndInput.value;
+          const url = `room-detail.html?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`;
+          window.location.href = url;
+        });
+      }
+    });
+  });
+
   </script>
 </body>
 </html>
