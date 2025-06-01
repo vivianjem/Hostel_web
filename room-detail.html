@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>山海景觀民宿｜包棟王</title>
+  <link rel="stylesheet" href="room-detail.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> <!-- for icons -->
+</head>
+<body>
+  <div class="room-detail-container">
+    <!-- 左：大圖＋資訊；右：訂房卡片 -->
+    <div class="room-detail-main">
+      <div class="room-image-block">
+        <img src="Photo/panoramic3.jpg" alt="山海景觀民宿" class="room-main-photo">
+      </div>
+    <div class="room-info-block">
+    <h1 class="room-title">山海景觀民宿</h1>
+    <h2 class="room-subtitle">豪華12人包棟 | 觀海陽台</h2>
+    <p class="room-summary">
+        擁有絕美山海景觀，附設KTV、麻雀間、專屬泳池等豪華設施，適合家族與朋友包棟歡聚。免費Wi-Fi、咖啡機、空調等應有盡有，打造舒適假期。
+    </p>
+    <section class="room-types-section">
+        <h3>房型介紹</h3>
+        <div class="room-types-gallery">
+        <div class="room-type-item">
+            <img src="Photo/room1.jpg" alt="房型1" class="room-type-img">
+        </div>
+        <div class="room-type-item">
+            <img src="Photo/room2.jpg" alt="房型2" class="room-type-img">
+        </div>
+        <div class="room-type-item">
+            <img src="Photo/room3.jpg" alt="房型3" class="room-type-img">
+        </div>
+        <div class="room-type-item">
+            <img src="Photo/room4.jpg" alt="房型4" class="room-type-img">
+        </div>
+        <div class="room-type-item">
+            <img src="Photo/room5.jpg" alt="房型5" class="room-type-img">
+        </div>
+        <div class="room-type-item">
+            <img src="Photo/room6.jpg" alt="房型6" class="room-type-img">
+        </div>
+        <div class="room-type-item">
+            <img src="Photo/room7.jpg" alt="房型7" class="room-type-img">
+        </div>
+        </div>
+    </section>
+    <section class="space-types-section">
+        <h3>客廳與其他空間介紹</h3>
+        <div class="space-types-gallery">
+        <div class="space-type-item">
+            <img src="Photo/liv1.jpg" alt="客廳空間1" class="space-type-img">
+        </div>
+        <div class="space-type-item">
+            <img src="Photo/liv2.jpg" alt="客廳空間2" class="space-type-img">
+        </div>
+        <div class="space-type-item">
+            <img src="Photo/liv3.jpg" alt="客廳空間3" class="space-type-img">
+        </div>
+        <div class="space-type-item">
+            <img src="Photo/outside1.jpg" alt="戶外1" class="space-type-img">
+        </div>
+    </section>
+  </div>
+
+    <!-- 右：訂房 -->
+    <aside class="booking-aside">
+      <form class="booking-form">
+        <label for="checkin">入住日期</label>
+        <input type="date" id="checkin" name="checkin">
+        <label for="checkout">退房日期</label>
+        <input type="date" id="checkout" name="checkout">
+        <div class="room-price">每晚 <b>NT$ 18,500</b></div>
+        <button type="submit" class="booking-btn">立即訂房</button>
+      </form>
+    </aside>
+
+  <section class="room-service-section">
+    <h3>服務設施</h3>
+    <div class="service-icons">
+      <div class="service-item"><i class="bi bi-wifi"></i><span>Wi-Fi</span></div>
+      <div class="service-item"><i class="bi bi-cup-hot"></i><span>咖啡機</span></div>
+      <div class="service-item"><i class="bi bi-snow2"></i><span>冷氣</span></div>
+      <div class="service-item"><i class="bi bi-car-front"></i><span>停車場</span></div>
+      <!-- 更多設施可自由加上 -->
+    </div>
+  </section>
+
+ <div id="img-lightbox">
+    <button class="img-lightbox-close" title="關閉">&times;</button>
+    <button class="img-lightbox-prev" title="上一張">&#8249;</button>
+    <img id="img-lightbox-img" src="" alt="">
+    <button class="img-lightbox-next" title="下一張">&#8250;</button>
+    <div id="img-lightbox-caption"></div>
+ </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const galleryItems = Array.from(document.querySelectorAll('.room-type-img, .space-type-img'));
+  const lightbox = document.getElementById('img-lightbox');
+  const lightboxImg = document.getElementById('img-lightbox-img');
+  const lightboxCaption = document.getElementById('img-lightbox-caption');
+  let currentIdx = 0;
+
+  function openLightbox(idx) {
+    if (galleryItems[idx]) {
+      lightboxImg.src = galleryItems[idx].src;
+      lightboxCaption.textContent = galleryItems[idx].alt || '';
+      lightbox.classList.add('active');
+      currentIdx = idx;
+    }
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+    lightboxCaption.textContent = '';
+  }
+  function showPrev() { openLightbox((currentIdx - 1 + galleryItems.length) % galleryItems.length); }
+  function showNext() { openLightbox((currentIdx + 1) % galleryItems.length); }
+
+  galleryItems.forEach((img, idx) => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => openLightbox(idx));
+  });
+  document.querySelector('.img-lightbox-close').onclick = closeLightbox;
+  document.querySelector('.img-lightbox-prev').onclick = showPrev;
+  document.querySelector('.img-lightbox-next').onclick = showNext;
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  window.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+});
+</script>
+
+</body>
+</html>
