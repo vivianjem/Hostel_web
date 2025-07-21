@@ -449,6 +449,7 @@ body {
 }
 
 @media (max-width: 900px) {
+  .floating-book-btn { display: block; }
   .booking-aside {
     min-width: 0 !important;
     max-width: 100vw !important;
@@ -516,6 +517,11 @@ body {
   .booking-btn:active, .booking-btn:hover {
     background: linear-gradient(90deg, #2563eb 0%, #2265b5 100%);
     box-shadow: 0 4px 26px 0 rgba(59,130,246,0.21);
+  }
+}
+@media (max-width: 600px) {
+  .booking-aside {
+    padding: 12px 2px 12px 2px;
   }
 }
 
