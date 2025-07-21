@@ -449,22 +449,73 @@ body {
 }
 
 @media (max-width: 900px) {
-  .floating-book-btn { display: block; }
-}
-
-@media (max-width: 900px) {
   .booking-aside {
     min-width: 0 !important;
     max-width: 100vw !important;
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin: 18px 0 0 0 !important;
     box-sizing: border-box;
-    padding: 18px 6px 16px 6px;
+    padding: 18px 8px 18px 8px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(59,130,246,0.14);
+    background: #fff;
+  }
+  .booking-form label {
+    font-size: 1.07rem;
+    margin: 13px 0 7px 2px;
+    color: #245;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+  }
+  .booking-form input[type="date"] {
+    border-radius: 10px;
+    font-size: 1.14rem;
+    padding: 10px 14px;
+    margin-bottom: 13px;
+    border: 1.5px solid #bcd4ee;
+    background: #f7fbff;
+  }
+  .room-price {
+    font-size: 1.42rem;
+    color: #183050;
+    font-weight: 700;
+    margin: 24px 0 14px 0;
+    letter-spacing: 1.2px;
+  }
+  .room-includes {
+    margin: 8px 0 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .include-tag {
+    display: inline-block;
+    background: #eaf4ff;
+    color: #2563eb;
+    font-size: 1.07em;
+    font-weight: 600;
+    border-radius: 18px;
+    padding: 7px 18px 6px 18px;
+    letter-spacing: 1.1px;
+    box-shadow: 0 2px 8px 0 #e5e7eb;
+    margin: 0;
+  }
+  .booking-btn {
+    width: 100%;
+    border-radius: 15px;
+    font-size: 1.17rem;
+    font-weight: 800;
+    padding: 17px 0 16px 0;
+    margin-top: 18px;
+    margin-bottom: 4px;
+    background: linear-gradient(90deg, #3b82f6 0%, #2466e3 100%);
+    box-shadow: 0 3px 20px 0 rgba(59,130,246,0.16);
+    letter-spacing: 2.5px;
+    transition: background .17s, box-shadow .13s;
+  }
+  .booking-btn:active, .booking-btn:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #2265b5 100%);
+    box-shadow: 0 4px 26px 0 rgba(59,130,246,0.21);
   }
 }
-@media (max-width: 600px) {
-  .booking-aside {
-    padding: 12px 2px 12px 2px;
-  }
-}
+
