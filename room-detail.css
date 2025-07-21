@@ -452,3 +452,19 @@ body {
   .floating-book-btn { display: block; }
 }
 
+@media (max-width: 900px) {
+  .booking-aside {
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box;
+    padding: 18px 6px 16px 6px;
+  }
+}
+@media (max-width: 600px) {
+  .booking-aside {
+    padding: 12px 2px 12px 2px;
+  }
+}
